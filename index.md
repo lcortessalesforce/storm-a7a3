@@ -150,7 +150,8 @@ h1 {
         <!-- Embedded Messaging Container -->
         <div id="embeddedMessagingContainer" class="chat-modal"></div>
     </main>
-    <script type="text/javascript">
+    
+<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -167,6 +168,8 @@ h1 {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+</script>
+<script type='text/javascript'>
 
 window.addEventListener("onEmbeddedMessagingReady", () => {
     embeddedservice_bootstrap.settings.targetElement = document.body.querySelector("#embeddedMessagingContainer");
@@ -181,19 +184,19 @@ function handleSearch() {
         //Show the chat modal
         const chatModal = document.getElementById('embeddedMessagingContainer');
         chatModal.classList.add('show');
-
+	    
         //Setting up the prechat form
-        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+       /** embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
             "_firstName": {
-                "value": "Lauren",
+                "value": "Leonardo",
                 "isEditableByEndUser": false
             },
             "_lastName": {
-                "value": "Bailey",
+                "value": "Cortes",
                 "isEditableByEndUser": false
             },
             "_email": {
-                "value": "rshekhar@salesforce.com",
+                "value": "lcortes@salesforce.com",
                 "isEditableByEndUser": false
             },
             "_subject": {
@@ -201,10 +204,11 @@ function handleSearch() {
                 "isEditableByEndUser": true
             }
         });
+
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
             "Prechat_Language": "English"
         });
-
+**/
         embeddedservice_bootstrap.utilAPI.launchChat();//launch the prechat or chat window automatically
     } else {
         alert('Please enter a search query!');
@@ -222,7 +226,32 @@ window.addEventListener("onEmbeddedMessagingConversationParticipantChanged", (ev
         }, 1500);
     }
 });
-    </script>
-    <script type='text/javascript' src='https://storm-a7a303367b9b26.my.site.com/ESWSDOMessagingforWeb1734373295697/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-</body>
-</html>
+
+window.addEventListener("onEmbeddedMessagingConversationClosed",(event) => {
+  const chatModal = document.getElementById('embeddedMessagingContainer');
+        chatModal.classList.remove('show');
+	document.getElementById('queryInput').value='';
+});
+
+window.addEventListener("onEmbeddedMessagingWindowClosed",(event) => {
+  const chatModal = document.getElementById('embeddedMessagingContainer');
+        chatModal.classList.remove('show');
+	document.getElementById('queryInput').value='';
+});
+
+window.addEventListener("onEmbeddedMessagingWindowMinimized",(event) => {
+  const chatModal = document.getElementById('embeddedMessagingContainer');
+        chatModal.classList.remove('show');
+	document.getElementById('queryInput').value='';
+});
+	
+
+	
+</script>
+
+<script type='text/javascript' src='https://storm-a7a303367b9b26.my.site.com/ESWSDOMessagingforWeb1734373295697/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</script>
+
+
+    </body>
+  </html>
