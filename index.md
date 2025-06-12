@@ -204,11 +204,11 @@ function handleSearch() {
                 "isEditableByEndUser": true
             }
         });
-
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "Prechat_Language": "English"
-        });
 **/
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "_subject": query
+        });
+
         embeddedservice_bootstrap.utilAPI.launchChat();//launch the prechat or chat window automatically
     } else {
         alert('Please enter a search query!');
