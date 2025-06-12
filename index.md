@@ -250,7 +250,7 @@ window.addEventListener("onEmbeddedMessagingWindowMinimized",(event) => {
 </script>
 
 <script type='text/javascript' src='https://storm-a7a303367b9b26.my.site.com/ESWSDOMessagingforWeb1734373295697/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-</script>
+
 
 
     </body>
