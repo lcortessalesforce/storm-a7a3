@@ -156,7 +156,7 @@ h1 {
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
+			
 			embeddedservice_bootstrap.init(
 				'00DHr00000Ek903',
 				'SDO_Messaging_for_Web',
